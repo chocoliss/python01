@@ -5,11 +5,18 @@ class Plant:
         self.age = age
 
     def info(self):
-        print(f"{self.name}:{self.height} cm,{self.age} days,",end ="")
+        print(f"{self.name}:{self.height} cm,{self.age} days,", end="")
+
 
 class Tree(Plant):
-    def __init__(self,name:str, height: int ,age: int,trunk_diameter: int ) -> None:
-        super().__init__( name, height, age)
+    def __init__(
+        self,
+        name: str,
+        height: int,
+        age: int,
+        trunk_diameter: int
+    ) -> None:
+        super().__init__(name, height, age)
         self.diameter = trunk_diameter
 
     def get_info(self) -> None:
@@ -18,30 +25,52 @@ class Tree(Plant):
 
     def produce_shade(self) -> None:
         shade = 3.1416 * ((self.diameter * 10) ** 2) / 10000
-        print(f"{self.name} provides {shade:.0f} square meters of shade")
-    
+        print(
+            f"{self.name} provides {shade:.0f} "
+            f"square meters of shade"
+        )
+
+
 class Flower(Plant):
-    def __init__(self,name:str, height:int, age:int,color_attribute : str) -> None:
-        super().__init__(name,height,age)
+    def __init__(
+        self,
+        name: str,
+        height: int,
+        age: int,
+        color_attribute: str
+    ) -> None:
+        super().__init__(name, height, age)
         self.color_attribute = color_attribute
 
-    def get_info(self) -> None:   
+    def get_info(self) -> None:
         super().info()
         print(self.color_attribute, "color")
 
     def bloom(self) -> None:
         print(f"{self.name} is blooming beautifully!")
 
+
 class Vegetable(Plant):
-    def __init__(self,name:str, height:int,age:int,harvest_season : str, nutritional_value: str) -> None:
-        super().__init__(name,height,age)
+    def __init__(
+        self,
+        name: str,
+        height: int,
+        age: int,
+        harvest_season: str,
+        nutritional_value: str
+    ) -> None:
+        super().__init__(name, height, age)
         self.season = harvest_season
         self.nutritional_value = nutritional_value
-    
+
     def get_info(self) -> None:
         super().info()
         print(f"{self.season} harvest")
-        print(f"{self.name} rich with vitamine {self.nutritional_value}")
+        print(
+            f"{self.name} rich with vitamine "
+            f"{self.nutritional_value}"
+        )
+
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===\n")
@@ -58,7 +87,9 @@ if __name__ == "__main__":
     rose.get_info()
     rose.bloom()
     print()
+
     oak.get_info()
     oak.produce_shade()
     print()
+
     tomato.get_info()
